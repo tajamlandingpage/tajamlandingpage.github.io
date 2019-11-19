@@ -1,169 +1,166 @@
-@media screen and (min-width : 320px) and (max-width : 760px) {
+@media screen and (min-width : 320px) and (max-width : 480px) {
 
-  .logo-nav-wrapp {
-    display: none;
-  }
+    .logo-nav-wrapp {
+        display: none;
+    }
 
-  .hidden-menu-wrapper {
-    display: block;
-  }
+    .hidden-menu-wrapper {
+        display: block;
+    }
 
-  header {
-    height: 95vh;
-  }
+    .logo-hidden {
+        opacity: 1;
+    }
 
-  .logo-hidden {
-    opacity: 1;
-  }
+    .header-content {
+        height: 475px;
+        padding-top: 50px;
+    }
 
-  .header-content {
-    height: 475px;
-  }
+    .header-content h1 {
+        font-size: 25px;
+        text-align: center;
+    }
 
-  .header-content h1 {
-    font-size: 25px;
-    text-align: center;
-  }
+    .heder-text-desctor {
+        display: none;
+    }
 
-  .heder-text-desctor {
-    display: none;
-  }
+    .header-text-media {
+        display: block;
+    }
 
-  .header-text-media {
-    display: block;
-  }
+    .our-story-right {
+        align-items: center;
+    }
 
-  .our-story-right {
-    align-items: center;
-  }
+    .our-story {
+        min-height: 820px;
+    }
 
-  .our-story {
-    min-height: 820px;
-  }
+    .expertise-line {
+        display: none;
+    }
 
-  .expertise-line {
-    display: none;
-  }
+    .title-block-second h2 {
+        font-size: 20px;
+    }
 
-  .title-block-second h2 {
-    font-size: 20px;
-  }
+    .our-works-text {
+        padding: 35px 0;
+        text-align: center;
+    }
 
-  .our-works-text {
-    padding: 35px 0;
-    text-align: center;
-  }
+    .all-projects {
+        padding: 30px 0;
+        text-align: center;
+    }
 
-  .all-projects {
-  padding: 30px 0;
-  text-align: center;
-  }
-  
-  .clients-title {
-    padding: 5px 0 30px;
-    text-align: center;
-  }
+    .clients-title {
+        padding: 5px 0 30px;
+        text-align: center;
+    }
 
-  .our-client-left img {
-    width: 95px;
-  }
+    .our-client-left img {
+        width: 95px;
+    }
 
-  .our-clients-right img {
-    width: 95px;
-  }
+    .our-clients-right img {
+        width: 95px;
+    }
 
-  .review-text {
-    font-size: 13px;
-  }
+    .review-text {
+        font-size: 13px;
+    }
 
-  .registry-title {
-    text-align: center;
-  }
+    .registry-title {
+        text-align: center;
+    }
 
-  .submit-button {
-    margin-top: 25px;
-  }
+    .submit-button {
+        margin-top: 25px;
+    }
 
-  .logo-footer {
-    padding-top: 45px;
-  }
+    .logo-footer {
+        padding-top: 45px;
+    }
 
-  .footer-text-left-wrapp ul {
-    padding-top: 35px;
-  }
+    .footer-text-left-wrapp ul {
+        padding-top: 35px;
+    }
 
-  .footer-block-center h4 {
-    text-align: center;
-  }
+    .footer-block-center h4 {
+        text-align: center;
+    }
 
-  .footer-block-right h4 {
-    text-align: center;
-  }
+    .footer-block-right h4 {
+        text-align: center;
+    }
 
-  .footer-block-right ul {
-    margin: 25px;
-  }
+    .footer-block-right ul {
+        margin: 25px;
+    }
 
-  .footer-block-right p {
-    padding-left: 0;
-  }
+    .footer-block-right p {
+        padding-left: 0;
+    }
 }
 
 
 @media screen and (min-width : 768px) and (max-width : 1024px) {
 
-  header {
-    height: 60vh;
-  }
-  
-  .logo {
-    position: absolute;
-    left: -95px;
-  }
+    header {
+        min-height: 60vh;
+    }
 
-  .heder-text-desctor {
-    display: none;
-  }
+    .logo {
+        position: absolute;
+        left: -95px;
+    }
 
-  .header-text-media {
-    display: block;
-  }
+    .heder-text-desctor {
+        display: none;
+    }
 
-  .header-content {
-    padding-top: 60px;
-  }
+    .header-text-media {
+        display: block;
+    }
 
-  .our-works-text {
-    padding: 40px 0;
-  }
+    .header-content {
+        padding-top: 60px;
+    }
 
-  .all-projects {
-    padding: 30px 0;
-  }
+    .our-works-text {
+        padding: 40px 0;
+    }
 
-  .submit-button {
-    margin-bottom: 0;
-  }
+    .all-projects {
+        padding: 30px 0;
+    }
 
-  .our-clients-right img {
-    width: 140px;
-  }
+    .submit-button {
+        margin-bottom: 0;
+    }
 
-  .our-client-left img {
-    width: 140px;
-  }
+    .our-clients-right img {
+        width: 140px;
+    }
 
-  .our-clients-wrapp {
-    margin-bottom: 40px;
-  }
+    .our-client-left img {
+        width: 140px;
+    }
 
-  .footer-text-left-wrapp ul {
-    padding-top: 40px;
-  }
+    .our-clients-wrapp {
+        margin-bottom: 40px;
+    }
 
-  .footer-block-right p {
-    padding-left: 0;
-  }
+    .footer-text-left-wrapp ul {
+        padding-top: 40px;
+    }
+
+    .footer-block-right p {
+        padding-left: 0;
+    }
 }
 
 
