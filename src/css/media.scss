@@ -104,10 +104,19 @@
     .footer-block-right p {
         padding-left: 0;
     }
+
+    .prev,
+    .next {
+        display: none;
+    }
+
+    .adaptive-mobile {
+        display: none;
+    }
 }
 
 
-@media screen and (min-width : 768px) and (max-width : 1024px) {
+@media screen and (min-width : 768px) and (max-width : 1023px) {
 
     header {
         min-height: 60vh;
@@ -161,11 +170,20 @@
     .footer-block-right p {
         padding-left: 0;
     }
+
+    .adaptive-ipad {
+        display: none;
+    }
+
+    .prev,
+    .next {
+        display: none;
+    }
 }
 
+@media (max-width : 1400px) {
 
-
-@media screen and (min-width : 1224px) {}
-
-
-@media screen and (min-width : 1824px) {}
+    .adaptive-pro {
+        display: none;
+    }
+}

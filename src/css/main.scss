@@ -419,7 +419,7 @@ nav {
         @include btn (none, none, transparent, pointer);
         @include text(Hammersmith One, 16px, $aqua, 2em, 400);
         border-top: 1px solid $aqua;
-        border-bottom: 1px solid $aqua;
+        border: 1px solid $aqua;
         outline: none;
         width: 140px;
         padding-top: 2px;
@@ -453,17 +453,25 @@ nav {
 }
 
 .portfolio {
-    width: 97%;
-    height: 200px;
+    width: 95%;
+    margin: 0 auto;
+    min-height: 200px;
     margin-bottom: 70px;
     @include flex(flex, row, center, center);
+    flex-wrap: wrap;
 
-    p {
-        width: 364px;
-        height: 200px;
-        background-size: cover !important;
+    img {
+        width: 280px;
+        height: 190px;
     }
 }
+
+.imglist {
+    @include flex(flex, row, center, center);
+    flex-wrap: wrap;
+    max-width: 1400px;
+}
+
 
 .load-more {
     @include btn (1px solid $aqua, none, transparent, pointer);
@@ -552,7 +560,7 @@ nav {
     cursor: pointer;
     z-index: 2;
     bottom: 113px;
-    left: 130px;
+    left: 15%;
     opacity: .7;
 
     &:hover {
@@ -576,7 +584,7 @@ nav {
     cursor: pointer;
     z-index: 2;
     bottom: 113px;
-    right: 130px;
+    right: 15%;
     opacity: .7;
 
     &:hover {
@@ -703,11 +711,6 @@ nav {
     }
 }
 
-// .footer-wrapper {
-//   position: relative;
-//   z-index: 2;
-// }
-
 .footer-text-left-wrapp {
     position: relative;
     z-index: 2;
@@ -832,71 +835,28 @@ nav {
     }
 }
 
-.link-footer-1 {
+.link-footer {
     display: block;
-    width: 35px;
-    height: 35px;
-    background: url(../img/fb1.png) no-repeat center;
-    background-color: transparent;
-    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
     transition: .5s;
-    border-radius: 18px;
-    margin-right: 9px;
 
     &:hover {
-        background: url(../img/fb2.png) no-repeat center;
-        background-color: white;
-        transition: .5s;
-        cursor: pointer;
+        color: #3a2e5e;
+        border: 1px solid #fff;
+        background-color: #fff;
     }
-}
 
-.link-footer-2 {
-    @extend .link-footer-1;
-    background: url(../img/tw1.png) no-repeat center;
-
-    &:hover {
-        background: url(../img/tw2.png) no-repeat center;
-        background-color: white;
-    }
-}
-
-.link-footer-3 {
-    @extend .link-footer-1;
-    background: url(../img/drr1.png) no-repeat center;
-
-    &:hover {
-        background: url(../img/drr2.png) no-repeat center;
-        background-color: white;
-    }
-}
-
-.link-footer-4 {
-    @extend .link-footer-1;
-    background: url(../img/inst1.png) no-repeat center;
-
-    &:hover {
-        background: url(../img/inst2.png) no-repeat center;
-        background-color: white;
-    }
-}
-
-.link-footer-5 {
-    @extend .link-footer-1;
-    background: url(../img/goo1.png) no-repeat center;
-
-    &:hover {
-        background: url(../img/goo2.png) no-repeat center;
-        background-color: white;
-    }
-}
-
-.link-footer-6 {
-    @extend .link-footer-1;
-    background: url(../img/yo1.png) no-repeat center;
-
-    &:hover {
-        background: url(../img/yo2.png) no-repeat center;
-        background-color: white;
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
