@@ -1,0 +1,862 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap');
+@import "_variables.scss";
+
+header {
+    width: 100%;
+    min-height: 101vh; //если сделать 100, то не сработает анимация
+    background: url(../img/heagerbcg.png) center no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(46, 27, 90, 0.85);
+        z-index: 1;
+    }
+}
+
+.logo-nav-wrapp {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    position: fixed;
+    left: 0;
+    padding: 0 140px;
+    z-index: 10;
+    background-color: #413666;
+}
+
+
+.logo {
+    height: 75px;
+    position: relative;
+    z-index: 2;
+    @include flex(flex, row, center, center);
+
+    p {
+        @include text(Roboto, 30px, $aqua, none, 300);
+        padding-left: 10px;
+    }
+}
+
+.logo-hidden {
+    @extend .logo;
+    opacity: 0;
+    justify-content: flex-end;
+}
+
+nav {
+    position: relative;
+    z-index: 2;
+    height: 75px;
+    @include flex(flex, row, center, center);
+}
+
+.nav-link {
+    @include text(Roboto, 13px, white, none, 900);
+    text-transform: uppercase;
+
+    &:hover {
+        color: $aqua;
+        transition: .5s;
+    }
+}
+
+//бургер меню
+.hidden-menu-wrapper {
+    display: none;
+}
+
+.hidden-menu-list {
+    display: block;
+    position: fixed;
+    padding: 45px 0 20px 0;
+    width: 100%;
+    text-align: center;
+    background-color: #543f88;
+    transition: left 0.9s;
+    /*Замедление выдвижения слева*/
+    left: -100vh;
+    /*Скрыть меню слева*/
+    z-index: 10;
+}
+
+.hidden-menu-link {
+    font-family: Roboto;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    line-height: 1.7em;
+
+    &:hover {
+        color: black;
+        cursor: pointer;
+        font-weight: 900;
+    }
+}
+
+.hidden-menu-list-ticker {
+    display: none;
+    /*Скрыть checkbox*/
+}
+
+.hidden-menu-button {
+    /*Положение кнопки*/
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    transition: left .3s;
+    z-index: 11;
+    width: 35px;
+}
+
+.hidden-menu-button span {
+    /*Редактировать вид общего span, как дочернего hidden-menu__button*/
+    display: block;
+    height: 5px;
+    background-color: #675691;
+    margin: 5px 0 0;
+    position: relative;
+}
+
+.hidden-menu-list-ticker:checked~.hidden-menu-button {
+    /*При нажатии определяет, на сколько изображение меню сдвинется влево*/
+    right: 270px;
+}
+
+.hidden-menu-list-ticker:checked~.hidden-menu-list {
+    left: 0;
+}
+
+.hidden-menu-list-ticker:checked~.hidden-menu-button .hidden-menu-first-line {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.hidden-menu-list-ticker:checked~.hidden-menu-button .hidden-menu-second-line {
+    /*При нажатии скрывает среднюю линию*/
+    opacity: 0;
+}
+
+.hidden-menu-list-ticker:checked~.hidden-menu-button .hidden-menu-third-line {
+    transform: rotate(-45deg);
+    top: -10px;
+}
+
+//
+
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 600px;
+    padding-top: 120px;
+    @include flex(flex, column, center, center);
+
+    h1 {
+        @include text(Playfair Display, 32px, white, 1.5em, 900);
+    }
+
+    hr {
+        width: 47px;
+        height: .5px;
+        background-color: $aqua;
+    }
+
+    button {
+        @include btn (1px solid $aqua, none, transparent, pointer);
+        @include text(Hammersmith One, 16px, $aqua, 2em, 400);
+        outline: none;
+        width: 120px;
+        padding-top: 2px;
+        margin-top: 48px;
+
+        &:hover {
+            color: white;
+            background-color: #2d264b;
+            border: 1px solid white;
+            transition: .5s;
+        }
+    }
+}
+
+.heder-text-desctor {
+    @include text(Roboto, 14px, white, 1.8em, 400);
+    letter-spacing: .5px;
+    text-align: center;
+}
+
+.header-text-media {
+    @include text(Roboto, 14px, white, 1.8em, 400);
+    letter-spacing: .5px;
+    text-align: center;
+    display: none;
+}
+
+.our-story {
+    width: 100%;
+    min-height: 404px;
+    display: flex;
+}
+
+.our-story-left {
+    height: 370px;
+    @include flex(flex, column, center, center);
+}
+
+.our-story-right {
+    height: 404px;
+    @include flex(flex, column, center, none);
+
+    h2 {
+        @include text(Playfair Display, 22px, #413d4b, 3em, 700);
+    }
+
+    button {
+        @include btn (1px solid $aqua, none, transparent, pointer);
+        @include text(Hammersmith One, 16px, $aqua, 2em, 400);
+        outline: none;
+        width: 120px;
+        padding-top: 2px;
+
+        &:hover {
+            color: white;
+            background-color: $aqua;
+            border: 1px solid $aqua;
+            transition: .5s;
+        }
+    }
+}
+
+.story-text-first,
+.story-text-second {
+    @include text(Roboto, 14px, #817f86, 1.5em, 400);
+    padding-bottom: 30px;
+}
+
+.animated {
+    //настройка длительности появления подключенной анимации
+    animation-duration: 4000ms;
+}
+
+.bcg-block {
+    width: 100%;
+    height: 250px;
+    background: url(../img/bcg2.png) center no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(46, 27, 90, 0.85);
+        z-index: 1;
+    }
+}
+
+.title-block {
+    width: 100%;
+    @include flex(flex, column, center, center);
+    text-align: center;
+
+    h2 {
+        @include text(Playfair Display, 22px, #413d4b, 2em, 700);
+        padding-top: 45px;
+    }
+
+    p {
+        @include text(Playfair Display, 14px, #78777b, 2em, 400);
+    }
+
+    hr {
+        width: 47px;
+        height: .5px;
+        background-color: #c6c4c9;
+        margin-bottom: 35px;
+    }
+}
+
+.expertise-block {
+    @include flex(flex, column, center, center);
+    text-align: center;
+    padding-top: 37px;
+
+    h4 {
+        @include text(Roboto, 14px, #413d4b, 4em, 900);
+    }
+
+    p {
+        @include text(Roboto, 14px, #a4a4a4, 1.5em, 400);
+        padding-bottom: 37px;
+    }
+}
+
+.expertise-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ebebeb;
+}
+
+.padding-bottom {
+    padding-bottom: 68px;
+}
+
+.our-team {
+    width: 100%;
+    min-height: 711px;
+    background: url(../img/bcg3.png) center no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(46, 27, 90, 0.85);
+        z-index: 1;
+    }
+}
+
+.title-block-second {
+    width: 100%;
+    @include flex(flex, column, center, center);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 1px;
+    text-align: center;
+
+    h2 {
+        @include text(Playfair Display, 22px, white, 2em, 700);
+        padding-top: 45px;
+    }
+
+    p {
+        @include text(Playfair Display, 14px, white, 2em, 400);
+    }
+
+    hr {
+        width: 47px;
+        height: .5px;
+        background-color: #c6c4c9;
+        margin-bottom: 35px;
+    }
+}
+
+.team-member {
+    width: 230px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin: 20px auto 0 auto;
+}
+
+.photo {
+    width: 230px;
+    height: 220px;
+    background-size: cover !important;
+    transition: .7s;
+
+    &:hover {
+        transform: scale(1.2) translateY(-18px);
+        transition: .7s;
+    }
+}
+
+.member-description {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #767489;
+    @include flex(flex, column, center, center);
+}
+
+.name {
+    @include text(Roboto, 14px, white, 2em, 900);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.career {
+    @include text(Roboto, 13px, #c0c0c7, 1em, 300);
+    text-align: center;
+}
+
+.part-of-us {
+    width: 100%;
+    min-height: 220px;
+    position: relative;
+    z-index: 2;
+    @include flex(flex, column, center, center);
+
+    p {
+        @include text(Roboto, 14px, #c0c0c7, 5em, 300);
+    }
+
+    button {
+        @include btn (none, none, transparent, pointer);
+        @include text(Hammersmith One, 16px, $aqua, 2em, 400);
+        border-top: 1px solid $aqua;
+        border: 1px solid $aqua;
+        outline: none;
+        width: 140px;
+        padding-top: 2px;
+
+        &:hover {
+            color: white;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            transition: .5s;
+        }
+    }
+}
+
+.our-works-text {
+    @include text(Playfair Display, 22px, #66636d, none, 700);
+    padding: 70px 0;
+    letter-spacing: 1px;
+}
+
+.all-projects {
+    padding: 70px 0;
+
+    a {
+        @include text(Roboto, 14px, #66636d, none, 300);
+    }
+
+    img {
+        height: 8px;
+        padding-left: 2px;
+    }
+}
+
+.portfolio {
+    width: 95%;
+    margin: 0 auto;
+    min-height: 200px;
+    margin-bottom: 70px;
+    @include flex(flex, row, center, center);
+    flex-wrap: wrap;
+
+    img {
+        width: 280px;
+        height: 190px;
+    }
+}
+
+.imglist {
+    @include flex(flex, row, center, center);
+    flex-wrap: wrap;
+    max-width: 1400px;
+}
+
+
+.load-more {
+    @include btn (1px solid $aqua, none, transparent, pointer);
+    @include text(Hammersmith One, 16px, $aqua, none, 400);
+    padding: 12px 27px 11px 27px;
+    margin-bottom: 70px;
+
+    &:hover {
+        color: white;
+        background-color: $aqua;
+        transition: .5s;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.reviews {
+    width: 100%;
+    min-height: 500px;
+    background: url(../img/bcg4.png) center no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(46, 27, 90, 0.85);
+        z-index: 1;
+    }
+}
+
+.slider-wrapp {
+    position: relative;
+    z-index: 2;
+}
+
+.review-text-wrapp {
+    img {
+        padding: 66px 0 38px 0;
+        margin: 0 auto;
+    }
+}
+
+.review-text {
+    @include text(Playfair Display, 16px, #e9e8eb, 1.5em, 400);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.review-text-name {
+    @include text(Roboto, 14px, white, 2em, 900);
+    letter-spacing: 1px;
+    padding-top: 45px;
+    text-align: center;
+}
+
+.review-career {
+    @include text(Roboto, 13px, #e9e8eb, 2em, 300);
+    letter-spacing: 1px;
+    padding-bottom: 28px;
+    text-align: center;
+}
+
+.review-people {
+    width: 120px;
+    height: 120px;
+    background-size: cover !important;
+    border-radius: 60px;
+    margin: 0 auto 60px auto;
+}
+
+.prev {
+    background: url(../img/prev1.png) center no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    bottom: 113px;
+    left: 15%;
+    opacity: .7;
+
+    &:hover {
+        background: url(../img/prev2.png) center no-repeat;
+        background-size: cover;
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.next {
+    background: url(../img/next1.png) center no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    bottom: 113px;
+    right: 15%;
+    opacity: .7;
+
+    &:hover {
+        background: url(../img/next2.png) center no-repeat;
+        background-size: cover;
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.registry-title {
+    @include text(Playfair Display, 22px, #66636d, none, 700);
+    padding: 70px 0 30px 0;
+    letter-spacing: 1px;
+}
+
+.form-news {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        border: 1px solid #e5e5e5;
+        height: 50px;
+        margin: 13px 0;
+        padding-left: 20px;
+        outline: none;
+        @include text(Roboto, 14px, #49474d, none, 400);
+
+        &:focus {
+            border: 1px solid #5f4991;
+        }
+
+        &::placeholder {
+            @include text(Roboto, 14px, #e5e5e5, none, 400);
+        }
+    }
+
+    textarea {
+        border: 1px solid #e5e5e5;
+        margin: 13px 0;
+        outline: none;
+        padding-left: 20px;
+        padding-top: 15px;
+        @include text(Roboto, 14px, #49474d, none, 400);
+
+        &:focus {
+            border: 1px solid #5f4991;
+        }
+
+        &::placeholder {
+            @include text(Roboto, 14px, #e5e5e5, none, 400);
+        }
+    }
+}
+
+.submit-button {
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    margin-bottom: 70px;
+    border: 1.2px solid $aqua;
+    background-color: transparent;
+    @include text(Hammersmith One, 16px, $aqua, none, 400);
+
+    &:hover {
+        color: white;
+        background-color: $aqua;
+        transition: .5s;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.clients-title {
+    @extend .registry-title;
+}
+
+.our-clients-wrapp {
+    @include flex(flex, row, none, none);
+}
+
+.our-client-left {
+    width: 40%;
+    text-align: center;
+
+    img {
+        padding: 23px 0 23px 0;
+    }
+}
+
+.our-clients-right {
+    width: 40%;
+    text-align: center;
+    margin-left: 70px;
+
+    img {
+        padding: 23px 0 23px 0;
+    }
+}
+
+.footer-background {
+    width: 100%;
+    min-height: 400px;
+    background: url(../img/footerbcg.png) center no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(46, 27, 90, 0.85);
+        z-index: 1;
+    }
+}
+
+.footer-text-left-wrapp {
+    position: relative;
+    z-index: 2;
+
+    ul {
+        @include flex(flex, row, none, none);
+        padding-top: 75px;
+
+        li a {
+            @include text(Roboto, 14px, #ebeaed, 2em, 400);
+            text-decoration: none;
+            padding-right: 20px;
+        }
+    }
+}
+
+.logo-footer {
+    padding-top: 70px;
+    padding-bottom: 22px;
+    @include flex(flex, row, none, center);
+}
+
+.logo-text {
+    @include text(Roboto, 30px, $aqua, none, 300);
+    padding-left: 10px;
+}
+
+.footer-text {
+    @include text(Roboto, 14px, #ebeaed, 1.7em, 400);
+}
+
+.footer-block-center {
+    position: relative;
+    z-index: 2;
+
+    h4 {
+        @include text(Roboto, 15px, #ebeaed, none, 900);
+        padding-top: 75px;
+        padding-bottom: 40px;
+    }
+}
+
+.footer-adress {
+    display: flex;
+
+    img {
+        padding-right: 20px;
+    }
+
+    a {
+        @include text(Roboto, 14px, #ebeaed, 1.7em, 400);
+        text-decoration: none;
+    }
+}
+
+.footer-phone {
+    display: flex;
+    padding-top: 25px;
+
+    a {
+        @include text(Roboto, 14px, #ebeaed, 1.7em, 400);
+        text-decoration: none;
+        padding-left: 20px;
+    }
+}
+
+.footer-block-right {
+    position: relative;
+    z-index: 2;
+
+    h4 {
+        @include text(Roboto, 15px, #ebeaed, none, 900);
+        padding-top: 75px;
+        padding-bottom: 40px;
+    }
+
+    ul {
+        display: flex;
+        margin-top: 27px;
+    }
+
+    p {
+        @include text(Roboto, 14px, #ebeaed, 9em, 400);
+        padding-left: 75px;
+    }
+}
+
+.footer-form {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    input {
+        width: 210px;
+        height: 45px;
+        background-color: transparent;
+        outline: none;
+        border: 1px solid #9e98b0;
+        @include text(Roboto, 13px, #ebeaed, none, 400);
+        padding-left: 15px;
+
+        &::placeholder {
+            @include text(Roboto, 14px, #a6a3b3, none, 400);
+            letter-spacing: .2px;
+        }
+    }
+
+    button {
+        background: url(../img/send1.png) center no-repeat;
+        @include btn (none, none, #a199b4, pointer);
+        width: 70px;
+        height: 46px;
+        position: absolute;
+        margin-left: 10px;
+        transition: .5s;
+
+        &:hover {
+            background: url(../img/send2.png) center no-repeat;
+            background-color: $aqua;
+            transition: .5s;
+        }
+    }
+}
+
+.link-footer {
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    transition: .5s;
+
+    &:hover {
+        color: #3a2e5e;
+        border: 1px solid #fff;
+        background-color: #fff;
+    }
+
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
